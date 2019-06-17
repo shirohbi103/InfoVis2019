@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>W02: Task 2</title>
+  </head>
+  <body>
+    <p id="target"></p>
+     <script src="vec3.js"></script>
+    <script>
+      var x0=5, y0 =4, z0 =8;
+      var v0 = new Vec3(x0,y0,z0);
+
+      var x1=5, y1 =4, z1 =8;
+      var v1 = new Vec3(x1,y1,z1);
+      
+      var x2=5, y2 =4, z2 =8;
+      var v2 = new Vec3(x2,y2,z2);
+
+      var S = AreaOfTriangle(v0,v1,v2);
+      
+      var text;
+      text = "Min  : "+ min + "<br>"+ "Mid  : "+ mid + "<br>"+ "Max  : "+ max + "<br>";
+
+          document.getElementById("target").innerHTML = text;
+    </script>
+  </body>
+  </html>

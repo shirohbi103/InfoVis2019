@@ -25,19 +25,25 @@ function main()
         [ -1,  1, 0 ], // 0
         [ -1, -1, 0 ], // 1
         [  1, -1, 0 ],  // 2
-        [  1,  1, 0 ]  // 3	
+        [  1,  1, 0 ],  // 3
+	[  2,  0, 0 ], // 4
+	[  -2,  0, 0 ]  // 5
     ];
 
     var faces = [
         [ 0, 1, 2 ], // f0
         [ 0, 2, 3 ], // f1
+	[ 0, 1, 4 ], // f1
+	[1, 2, 5 ], // f1
     ];
 
     var scalars = [
         0.1, // S0
-        0.2, // S1
-        0.8,  // S2
-	0.5  // S3
+        0.44, // S1
+        0.27,  // S2
+	0.55,  // S3
+	0.8,  // S2
+	0.45  // S3
     ];
 
     // Create color map
@@ -45,10 +51,10 @@ function main()
     for ( var i = 0; i < 256; i++ )
     {
         var S = i / 255; // [0,1]
-	//  var R = 1.0;
-	//  var G = 1.0-S;
+      //  var R = 1.0;
+      //  var G = 1.0-S;
 	//  var B = 1.0-S;
-	var R = Math.max( Math.cos( ( S - 1.0 ) * Math.PI ), 0.0 );
+	        var R = Math.max( Math.cos( ( S - 1.0 ) * Math.PI ), 0.0 );
         var G = Math.max( Math.cos( ( S - 0.5 ) * Math.PI ), 0.0 );
         var B = Math.max( Math.cos( S * Math.PI ), 0.0 );
         var color = new THREE.Color( R, G, B );
@@ -110,6 +116,8 @@ function main()
     function loop()
     {
         requestAnimationFrame( loop );
+	triangle.rotation.z +=0.0825;
+	camera.rotation.z +=0.05;
         renderer.render( scene, camera );
     }
 }
